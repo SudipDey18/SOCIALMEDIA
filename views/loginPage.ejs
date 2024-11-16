@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login Page</title>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+    <div class="login-container">
+        <form class="login-form" action="/loginUser" method="post">
+            <h1>Login</h1>
+            <hr />
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="text" id="email" placeholder="Enter Email" name="email">
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter password" name="password">
+            </div>
+            <button class="login-btn">Login</button>
+            <p class="forgot-password">Forgot password?</p>
+            <a href="/profile/create" class="create-account">Create account</a>
+        </form>
+    </div>
+</body>
+</html>

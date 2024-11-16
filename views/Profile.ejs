@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="/css/profile.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/posts">Posts</a></li>
+                <li><a href="/Posts/Create">Create Post</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="profile">
+            <div class="profile-picture">
+                <img src="/pics/<%= User.ProfilePic %>" alt="Profile Picture">
+            </div>
+            <div class="profile-info">
+                <h1><%= User.Name %></h1>
+                <p><a href="/profile/<%= User._id %>">@<%= User.Username %></a></p>
+                <p>Posts:<span style="padding-left: 3px; color: rgb(255, 164, 52);"><%= User.posts.length %></span></p>
+            </div>
+        </section>
+        <section class="posts">
+            <h2>Posts</h2>
+            <% User.posts.forEach((post)=>{ %>
+                <div class="post-container">
+                    <!-- Post Header -->
+                    <div class="post-header">
+                    <div class='postprofile'>
+                        <img src="/pics/<%= User.ProfilePic %>" alt="Profile Picture" class="postprofile-picture">
+                        </div>
+                        <div class="postUsername"><a href="" style="color: rgb(29, 97, 215); text-decoration: none;"><%= User.Name %></a></div>
+                        <% let date = (String(post.Date)).replace('GMT+0530 (India Standard Time)','') %>
+                        <div class="post-date">Posted on: <p id='date' style="align-items: center;"><%= post.Date%></p></div>
+                    </div>
+                    <h3><%= post.PostTitle %></h3>
+                    <!-- Post Image -->
+                    <img src="/pics/<%= post.PostPicture %>" alt="Post Image" class="post-image">
+                    <!-- Post Actions -->
+                    <div class="post-actions">
+                        <div class="like-comment-share">
+                            <span style="padding-right: 3px; font-size: 20px;"><%= post.LikedUsers.length %></span>
+                            <% if(post.LikedUsers.indexOf(id) == -1) { %>
+                                <a href='/profile/like/<%= post._id %>'><i class="fa-solid fa-thumbs-up"
+                                    style="color: rgb(237, 237, 237);
+                                    font-size: 20px;"></i></a>
+                            <% } else{ %>
+                                <a href='/profile/like/<%= post._id %>'><i class="fa-solid fa-thumbs-up"
+                                    style="color: rgb(36, 160, 255);
+                                    font-size: 20px;"></i></a>
+                            <% } %>
+                        </div>
+                        <div class="comment-section">
+                            <input type="text" placeholder="Write a comment...">
+                            <button>Comment</button>
+                        </div>
+                            <a class="comments-button"">0<i class="fa-solid fa-comments" style="padding-left: 5px;"></i></a>
+                            <% if(User._id == id) {%>
+                                <a href="/delete/<%= post._id %>" style="margin-left: 50px;"><i class="fa fa-trash" aria-hidden="true" style="color: red; font-size: 20px;"></i></a>
+                            <% } %>
+                    </div>
+                    <!-- Comments -->
+                    <div class="comments-container">
+                        <div class="comments">
+                            <div id='commentdiv'>
+                                <img src="commenter-profile-picture.jpg" alt="Commenter Profile Picture" class="commenter-profile-picture">
+                                <div class="commenter-username">John Doe</div>
+                                <div class="comment-text">Love this post!</div>
+                                </div>
+                            <!-- Comments will be displayed here -->
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+
+        </section>
+    </main>
+    <script src="https://kit.fontawesome.com/99ff7bcda2.js" crossorigin="anonymous"></script>
+     <script src="/js/Profile.js"></script>
+</body>
+</html>

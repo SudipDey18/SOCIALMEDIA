@@ -1,0 +1,84 @@
+body {
+    background-color: #2f2f2f;
+    font-family: Arial, sans-serif;
+}
+
+hr{
+    width: 100%;
+    margin-top: -15px;
+    margin-bottom: 30px;
+    border: 1px solid blue;
+}
+
+.signup-container {
+    width: 350px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #333;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    font-size: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    color: #fff;
+    margin-bottom: 5px;
+    padding-left: 28px;
+}
+
+.input-group input {
+    width: 300px;
+    height: 30px;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+    background-color: #444;
+    color: #fff;
+    margin-top: 10px;
+    font-size: 16px;
+    margin-left: 14px;
+}
+
+
+.signup-btn {
+    width: 60%;
+    height: 40px;
+    background-color: blue;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.signup-btn:hover {
+    background-color: #662;
+    font-size: 20px;
+}
+
+.already-account {
+    color: #fff;
+    font-size: 12px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.already-account a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+.already-account a:hover {
+    text-decoration: underline;
+}
